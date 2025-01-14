@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: django-web-service
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn djangoappDAP.wsgi"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: "-n1qbvh=ra-tps&ti&iu5o(2_#=vv$t^zg=ovu27^e7)e#dm+n"
+      - key: DATABASE_URL
+        value: "postgres://user:password@localhost/dbname"
